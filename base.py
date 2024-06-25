@@ -5,7 +5,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/About Me')
+def about():
+    return render_template('AboutMe.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
 
-# djfkbgadkljfgad;lfkghd;lfghdsf;lgkhdsflkgdgit
