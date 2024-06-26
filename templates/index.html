@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>INDEX</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
-	<script src="index.html"></script>
     <h1>Maya Vateva</h1>
     <section>
-        <a href = "AboutMe.html" target = "_blank">
+        <a href="/aboutme">
             <button>About Me</button>
-        </a>
-        <button>Home</button>
-        <button>Skincare</button>
-        <button>Beauty</button>
-        <button>Wellness</button>
+        <a href = "/home">
+            <button>Home</button>
+        <a href = "/skincare">
+            <button>Skincare</button>
+        <a href = "/beauty">
+            <button>Beauty</button>
+        <a href = "/wellness">
+            <button>Wellness</button>
     </section>
     <section>
-        <img src="forwebsite.jpg" alt="pretty rose" style="width:300px; height:300px;" />
+        <img src="{{ url_for('static', filename='forwebsite.jpg') }}" alt="pretty rose" style="width:300px; height:300px;" />
     </section>
   </body>
 </html>
