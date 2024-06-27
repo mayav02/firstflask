@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Beauty</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Welcome to the Beauty Page</h1>
-</body>
-        <a href = "/makeup">
+    <section>
+        <a href="/makeup">
             <button>Makeup</button>
-        <a href = "/hair">
+        </a>
+        <a href="/hair">
             <button>Hair</button>
-        <a href = "/body">
+        </a>
+        <a href="/body">
             <button>Body</button>
+        </a>
+    </section>
+</body>
 </html>

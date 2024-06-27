@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>INDEX</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
     <h1>Maya Vateva</h1>
     <section>
         <a href="/aboutme">
             <button>About Me</button>
-        <a href = "/home">
+        </a>
+        <a href="/home">
             <button>Home</button>
-        <a href = "/skincare">
+        </a>
+        <a href="/skincare">
             <button>Skincare</button>
-        <a href = "/beauty">
+        </a>
+        <a href="/beauty">
             <button>Beauty</button>
-        <a href = "/wellness">
+        </a>
+        <a href="/wellness">
             <button>Wellness</button>
+        </a>
     </section>
     <section>
       <img src="{{ url_for('static', filename='images/forwebsite.jpg') }}" alt="My Image">
