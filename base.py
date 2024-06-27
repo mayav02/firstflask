@@ -15,15 +15,19 @@ def home():
 
 @app.route('/beauty')
 def beauty():
-    return render_template('beauty.html')
+    return render_template('beauty.html')   
 
 @app.route('/skincare')
-def skinare():
+def skincare():
     return render_template('skincare.html')
 
 @app.route('/wellness')
 def wellness():
     return render_template('wellness.html')
+
+@app.route('/makeup')
+def makeup():
+    return render_template('makeup.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
