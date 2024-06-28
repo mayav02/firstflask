@@ -7,9 +7,11 @@
     <title>INDEX</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
-  <body>
+  <header>
     <h1>Maya Vateva</h1>
-    <section>
+  </header>
+  <body>
+    <div class="container">
         <a href="/aboutme">
             <button>About Me</button>
         </a>
@@ -25,9 +27,13 @@
         <a href="/wellness">
             <button>Wellness</button>
         </a>
-    </section>
+      </div>
+  </body>
     <section>
-      <img src="{{ url_for('static', filename='images/forwebsite.jpg') }}" alt="My Image">
+      <img src="{{ url_for('static', filename='images/forwebsite.jpg') }}" alt="My Image"
+        width="400"
+        height = "500"
+        >
     </section>
   </body>
 </html>

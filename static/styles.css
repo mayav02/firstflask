@@ -1,89 +1,57 @@
-/* styles.css */
 
-/* General styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #c4e9f1;
     color: #333;
 }
 
-/* Header styles */
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+    background-color: #c4e9f1; /* Sets the background color of the header to a shade of green */
+    color: rgb(170, 228, 242); /* Sets the text color in the header to white */
+    padding: 20px 0; /* Adds 20 pixels of padding to the top and bottom of the header */
+    text-align: center; /* Centers the text horizontally within the header */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5em;
+    margin: 0; /* Removes the default margin of the h1 element */
+    font-size: 2.5em; /* Sets the font size of the h1 element to 2.5 times the size of the parent font */
 }
 
-/* Navigation styles */
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-}
 
-nav a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-}
-
-nav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Main content styles */
 main {
-    padding: 20px;
+    padding: 20px; /* Adds 20 pixels of padding to all sides of the main content area */
 }
 
 h1, h2, h3 {
-    color: #4CAF50;
+    color: #e69df3f4; /* Sets the text color of h1, h2, and h3 headings to the same shade of green used in the header */
 }
 
 p {
-    line-height: 1.6;
+    line-height: 1.6; /* Sets the line height of paragraphs to 1.6 times the font size for better readability */
 }
 
-/* Button styles */
+.container {
+    text-align: center; /* Ensure the container aligns its content (including buttons) to center */
+}
+
 button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
+    font-family: Georgia, serif;
+    background-color: rgb(85, 85, 231); /* Sets the background color of the button to green */
+    color: white; /* Sets the text color of the button to white */
+    border: none; /* Removes the default border of the button */
+    padding: 10px 20px; /* Adds 10 pixels of padding to the top and bottom, and 20 pixels to the left and right of the button */
+    text-align: center; /* Centers the text within the button */
+    text-decoration: none; /* Ensures no text decoration is applied to the button text */
+    display: inline-block; /* Makes the button an inline-block element */
+    font-size: 16px; /* Sets the font size of the button text to 16 pixels */
+    margin: 4px 2px; /* Adds 4 pixels of margin to the top and bottom, and 2 pixels to the left and right of the button */
+    cursor: pointer; /* Changes the cursor to a pointer (hand icon) when hovering over the button */
+    border-radius: 4px; /* Rounds the corners of the button with a radius of 4 pixels */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: rgb(85, 85, 231); /* Changes the background color of the button to a slightly darker green when hovered over */
 }
 
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    margin: 0;
-}
