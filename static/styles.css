@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #c4e9f1;
     color: #333;
+    text-align: center;
 }
 
 header {
@@ -54,4 +55,3 @@ button {
 button:hover {
     background-color: rgb(85, 85, 231); /* Changes the background color of the button to a slightly darker green when hovered over */
 }
-
