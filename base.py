@@ -1,10 +1,14 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_sqlalchemy import SQLAlchemy
-
+import logging
+from flask_migrate import Migrate
+import sqlite3
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
 
 # Define your models
 class Post(db.Model):
@@ -49,6 +53,7 @@ def new_post():
         content = request.form['content']
         if date and title and content:
             new_post = Post(date=date, title=title, content=content)
+            logging.info(new_post, "new_post")
             db.session.add(new_post)
             db.session.commit()
             flash('Post created successfully!', 'success')
