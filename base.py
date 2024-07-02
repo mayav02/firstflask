@@ -19,12 +19,25 @@ def index():
 
 @app.route('/aboutme')
 def about():
-    return render_template('aboutme.html')
-
-@app.route('/new_post')
-def posts():
     posts = Post.query.order_by(Post.id).all()
     return render_template('aboutme.html', posts=posts)
+
+@app.route('/new_post')
+@app.route('/new_post', methods=['GET', 'POST'])
+def new_post():
+    if request.method == 'POST':
+        date = request.form['date']
+        title = request.form['title']
+        content = request.form['content']
+        if date and title and content:
+            new_post = Post(date=date, title=title, content=content)
+            db.session.add(new_post)
+            db.session.commit()
+            flash('Post created successfully!', 'success')
+            return redirect(url_for('about'))
+        else:
+            flash('Date, Title, and Content are required.', 'danger')
+    return render_template('new_post.html')
 
 @app.route('/home')
 def home():
@@ -45,22 +58,6 @@ def wellness():
 @app.route('/makeup')
 def makeup():
     return render_template('makeup.html')
-
-@app.route('/new_post', methods=['GET', 'POST'])
-def new_post():
-    if request.method == 'POST':
-        date = request.form['date']
-        title = request.form['title']
-        content = request.form['content']
-        if date and title and content:
-            new_post = Post(date=date, title=title, content=content)
-            db.session.add(new_post)
-            db.session.commit()
-            flash('Post created successfully!', 'success')
-            return redirect(url_for('posts'))
-        else:
-            flash('Date, Title, and Content are required.', 'danger')
-    return render_template('new_post.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
