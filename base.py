@@ -1,19 +1,15 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_sqlalchemy import SQLAlchemy
-import logging
-from flask_migrate import Migrate
-import sqlite3
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-
 
 # Define your models
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.String(150), nullable = False)
+    date = db.Column(db.String(150), nullable=False)
     title = db.Column(db.String(150), nullable=False)
     content = db.Column(db.Text, nullable=False)
 
@@ -25,13 +21,18 @@ def index():
 def about():
     return render_template('aboutme.html')
 
+@app.route('/new_post')
+def posts():
+    posts = Post.query.order_by(Post.id).all()
+    return render_template('aboutme.html', posts=posts)
+
 @app.route('/home')
 def home():
     return render_template('home.html')
 
 @app.route('/beauty')
 def beauty():
-    return render_template('beauty.html')   
+    return render_template('beauty.html')
 
 @app.route('/skincare')
 def skincare():
@@ -53,16 +54,13 @@ def new_post():
         content = request.form['content']
         if date and title and content:
             new_post = Post(date=date, title=title, content=content)
-            logging.info(new_post, "new_post")
             db.session.add(new_post)
             db.session.commit()
             flash('Post created successfully!', 'success')
-            return redirect(url_for('about'))
+            return redirect(url_for('posts'))
         else:
             flash('Date, Title, and Content are required.', 'danger')
     return render_template('new_post.html')
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all() 
     app.run(debug=True)

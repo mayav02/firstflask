@@ -55,3 +55,17 @@ button {
 button:hover {
     background-color: rgb(85, 85, 231); /* Changes the background color of the button to a slightly darker green when hovered over */
 }
+
+l1
+{
+    font-family: Georgia, serif;
+    color:rgb(85, 85, 231); /* Sets the text color of the button to white */
+    border: none; /* Removes the default border of the button */
+    padding: 10px 20px; /* Adds 10 pixels of padding to the top and bottom, and 20 pixels to the left and right of the button */
+    text-align: left; /* Centers the text within the button */
+    display: inline-block; /* Makes the button an inline-block element */
+    font-size: 50px; /* Sets the font size of the button text to 16 pixels */
+    margin: 4px 2px; /* Adds 4 pixels of margin to the top and bottom, and 2 pixels to the left and right of the button */
+    border-radius: 4px; /* Rounds the corners of the button with a radius of 4 pixels */
+    text-decoration: underline
+}

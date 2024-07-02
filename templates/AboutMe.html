@@ -8,15 +8,26 @@
 <body>
     <h1>About Me!</h1>
     <section>
-        <p>
-            Hello!
-            My name is Maya Vateva and I am currently a 21 year old server at blah blah blah.
-            I was born in Sofia, Bulgaria, lived in Las Vegas for most of my life, and I am currently living in California. 
-        </p>
+        <p>Hello! My name is Maya Vateva and I am currently a 21-year-old server at blah blah blah. I was born in Sofia, Bulgaria, lived in Las Vegas for most of my life, and I am currently living in California.</p>
     </section>
     <section>
         <a href="/new_post">
             <button>Create New Post</button>
+        </a>
+    </section>
+    <br>
+    <section>
+        <h2>New Posts!</h2>
+        <br>
+        {% for post in posts %}
+        <div class="post">
+            {{ post.id }} <br/>
+            {{ post.date }} <br/>
+            {{ post.title }} <br/>
+            {{ post.content }} <br/>
+        </div>
+        <hr> <!-- Optional: Adds a horizontal line between posts -->
+        {% endfor %}
     </section>
 </body>
 </html>
