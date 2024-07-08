@@ -17,13 +17,12 @@ class Post(db.Model):
 def index():
     return render_template('index.html')
 
-@app.route('/aboutme')
+@app.route('/personal')
 def about():
     posts = Post.query.order_by(Post.id).all()
-    return render_template('aboutme.html', posts=posts)
+    return render_template('personal.html', posts=posts)
 
-@app.route('/newaboutmepost')
-@app.route('/newaboutmepost', methods=['GET', 'POST'])
+@app.route('/newpersonalpost', methods=['GET', 'POST'])
 def new_post():
     if request.method == 'POST':
         date = request.form['date']
@@ -37,7 +36,7 @@ def new_post():
             return redirect(url_for('about'))
         else:
             flash('Date, Title, and Content are required.', 'danger')
-    return render_template('/newaboutmepost.html')
+    return render_template('/newpersonalpost.html')
 
 @app.route('/home')
 def home():
