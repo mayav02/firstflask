@@ -12,13 +12,23 @@
             <label>Hair</label>
             <label>Body</label>
     </section>
-    <a href="/newaboutmepost">
+    <a href="/newbeautypost">
         <button>Create New Post</button>
     </a>
     </section>
     <br>
     <section>
         <h2>New Posts!</h2>
+        <br>
+        {% for post in posts %}
+        <div class="post">
+            {{ post.id }} <br/>
+            {{ post.date }} <br/>
+            {{ post.title }} <br/>
+            {{ post.content }} <br/>
+        </div>
+        <hr> <!-- Optional: Adds a horizontal line between posts -->
+        {% endfor %}
     </section>
 </body>
 </html>

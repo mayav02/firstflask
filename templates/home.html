@@ -2,17 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Me Page</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Welcome to the Home Page</h1>
+    <h1>Home</h1>
+    <section>
+        <a href="/newhomepost">
+            <button>Create New Post</button>
+        </a>
+    </section>
+    <br>
+    <section>
+        <h2>New Posts!</h2>
+        <br>
+        {% for post in posts %}
+        <div class="post">
+            {{ post.id }} <br/>
+            {{ post.date }} <br/>
+            {{ post.title }} <br/>
+            {{ post.content }} <br/>
+        </div>
+        <hr> <!-- Optional: Adds a horizontal line between posts -->
+        {% endfor %}
+    </section>
 </body>
-<a href="/newaboutmepost">
-    <button>Create New Post</button>
-</a>
-</section>
-<br>
-<section>
-<h2>New Posts!</h2>
 </html>
