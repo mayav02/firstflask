@@ -42,12 +42,12 @@ def index():
     return render_template('index.html')
 
 @app.route('/personal')
-def about():
+def personal():
     posts = Post.query.order_by(Post.id).all()
     return render_template('personal.html', posts=posts)
 
 @app.route('/newpersonalpost', methods=['GET', 'POST'])
-def new_post():
+def new_personal_post():
     if request.method == 'POST':
         date = request.form['date']
         title = request.form['title']
@@ -57,10 +57,36 @@ def new_post():
             db.session.add(new_post)
             db.session.commit()
             flash('Post created successfully!', 'success')
-            return redirect(url_for('about'))
+            return redirect(url_for('personal'))
         else:
             flash('Date, Title, and Content are required.', 'danger')
-    return render_template('/newpersonalpost.html')
+    return render_template('newpersonalpost.html')
+
+@app.route('/editpersonalpost/<int:post_id>', methods=['GET', 'POST'])
+def edit_personal_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    if request.method == 'POST':
+        post.date = request.form['date']
+        post.title = request.form['title']
+        post.content = request.form['content']
+        if post.date and post.title and post.content:
+            db.session.commit()
+            flash('Post updated successfully!', 'success')
+            return redirect(url_for('personal'))
+        else:
+            flash('Date, Title, and Content are required.', 'danger')
+    return render_template('editpersonalpost.html', post=post)
+
+@app.route('/deletepersonalpost/<int:post_id>', methods=['GET', 'POST'])
+def delete_personal_post(post_id):
+    post = Post.query.get_or_404(post_id)
+    if request.method == 'POST':
+        db.session.delete(post)
+        db.session.commit()
+        flash('Post deleted successfully!', 'success')
+        return redirect(url_for('personal'))
+    return render_template('deletepersonalpost.html', post=post)
+
 
 @app.route('/home')
 def home():
@@ -83,6 +109,31 @@ def new_home_post():
             flash('Date, Title, and Content are required.', 'danger')
     return render_template('/newhomepost.html')
 
+@app.route('/edithomepost/<int:post_id>', methods=['GET', 'POST'])
+def edit_home_post(post_id):
+    post = Home.query.get_or_404(post_id)
+    if request.method == 'POST':
+        post.date = request.form['date']
+        post.title = request.form['title']
+        post.content = request.form['content']
+        if post.date and post.title and post.content:
+            db.session.commit()
+            flash('Post updated successfully!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Date, Title, and Content are required.', 'danger')
+    return render_template('edithomepost.html', post=post)
+
+@app.route('/deletehomepost/<int:post_id>', methods=['GET', 'POST'])
+def delete_home_post(post_id):
+    post = Home.query.get_or_404(post_id)
+    if request.method == 'POST':
+        db.session.delete(post)
+        db.session.commit()
+        flash('Post deleted successfully!', 'success')
+        return redirect(url_for('home'))
+    return render_template('deletehomepost.html', post=post)
+
 @app.route('/beauty')
 def beauty():
     posts = Beauty.query.order_by(Beauty.id).all()
@@ -103,6 +154,31 @@ def new_beauty_post():
         else:
             flash('Date, Title, and Content are required.', 'danger')
     return render_template('/newbeautypost.html')
+
+@app.route('/editbeautypost/<int:post_id>', methods=['GET', 'POST'])
+def edit_beauty_post(post_id):
+    post = Beauty.query.get_or_404(post_id)
+    if request.method == 'POST':
+        post.date = request.form['date']
+        post.title = request.form['title']
+        post.content = request.form['content']
+        if post.date and post.title and post.content:
+            db.session.commit()
+            flash('Post updated successfully!', 'success')
+            return redirect(url_for('beauty'))
+        else:
+            flash('Date, Title, and Content are required.', 'danger')
+    return render_template('editbeautypost.html', post=post)
+
+@app.route('/deletebeautypost/<int:post_id>', methods=['GET', 'POST'])
+def delete_beauty_post(post_id):
+    post = Beauty.query.get_or_404(post_id)
+    if request.method == 'POST':
+        db.session.delete(post)
+        db.session.commit()
+        flash('Post deleted successfully!', 'success')
+        return redirect(url_for('beauty'))
+    return render_template('deletebeautypost.html', post=post)
 
 @app.route('/skincare')
 def skincare():
@@ -125,6 +201,31 @@ def new_skincare_post():
             flash('Date, Title, and Content are required.', 'danger')
     return render_template('/newskincarepost.html')
 
+@app.route('/editskincarepost/<int:post_id>', methods=['GET', 'POST'])
+def edit_skincare_post(post_id):
+    post = Skincare.query.get_or_404(post_id)
+    if request.method == 'POST':
+        post.date = request.form['date']
+        post.title = request.form['title']
+        post.content = request.form['content']
+        if post.date and post.title and post.content:
+            db.session.commit()
+            flash('Post updated successfully!', 'success')
+            return redirect(url_for('skincare'))
+        else:
+            flash('Date, Title, and Content are required.', 'danger')
+    return render_template('editpersonalpost.html', post=post)
+
+@app.route('/deleteskincarepost/<int:post_id>', methods=['GET', 'POST'])
+def delete_skincare_post(post_id):
+    post = Skincare.query.get_or_404(post_id)
+    if request.method == 'POST':
+        db.session.delete(post)
+        db.session.commit()
+        flash('Post deleted successfully!', 'success')
+        return redirect(url_for('skincare'))
+    return render_template('deleteskincarepost.html', post=post)
+
 @app.route('/wellness')
 def wellness():
     posts = Wellness.query.order_by(Wellness.id).all()
@@ -145,6 +246,31 @@ def new_wellness_post():
         else:
             flash('Date, Title, and Content are required.', 'danger')
     return render_template('/newwellnesspost.html')
+
+@app.route('/wellnesspost/<int:post_id>', methods=['GET', 'POST'])
+def edit_wellness_post(post_id):
+    post = Wellness.query.get_or_404(post_id)
+    if request.method == 'POST':
+        post.date = request.form['date']
+        post.title = request.form['title']
+        post.content = request.form['content']
+        if post.date and post.title and post.content:
+            db.session.commit()
+            flash('Post updated successfully!', 'success')
+            return redirect(url_for('wellness'))
+        else:
+            flash('Date, Title, and Content are required.', 'danger')
+    return render_template('editwellnesspost.html', post=post)
+
+@app.route('/deletewellnesspost/<int:post_id>', methods=['GET', 'POST'])
+def delete_wellness_post(post_id):
+    post = Wellness.query.get_or_404(post_id)
+    if request.method == 'POST':
+        db.session.delete(post)
+        db.session.commit()
+        flash('Post deleted successfully!', 'success')
+        return redirect(url_for('wellness'))
+    return render_template('deletewellnesspost.html', post=post)
 
 if __name__ == '__main__':
     with app.app_context():
