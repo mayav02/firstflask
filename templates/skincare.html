@@ -17,7 +17,6 @@
         <br>
         {% for post in posts %}
         <div class="post">
-            {{ post.id }} <br/>
             {{ post.date }} <br/>
             {{ post.title }} <br/>
             {{ post.content }} <br/>
@@ -32,4 +31,7 @@
         {% endfor %}
     </section>
 </body>
+<footer>
+    <a href="{{ url_for('index') }}">Back to the Home Page</a>
+</footer>
 </html>

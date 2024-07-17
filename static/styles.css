@@ -16,13 +16,14 @@ header {
 }
 
 header h1 {
+    text-align: center;
     margin: 0; /* Removes the default margin of the h1 element */
     font-size: 2.5em; /* Sets the font size of the h1 element to 2.5 times the size of the parent font */
 }
 
 
 main {
-    padding: 20px; /* Adds 20 pixels of padding to all sides of the main content area */
+    padding: 10px; /* Adds 20 pixels of padding to all sides of the main content area */
 }
 
 h1, h2, h3 {
@@ -30,7 +31,9 @@ h1, h2, h3 {
 }
 
 p {
-    line-height: 1.6; /* Sets the line height of paragraphs to 1.6 times the font size for better readability */
+    line-height: 1.0; /* Sets the line height of paragraphs to 1.6 times the font size for better readability */
+    color: rgb(222, 134, 222);
+    font-size: 1.2em; /* Sets the font size of the h1 element to 2.5 times the size of the parent font */
 }
 
 .container {
@@ -47,7 +50,7 @@ button {
     text-decoration: none; /* Ensures no text decoration is applied to the button text */
     display: inline-block; /* Makes the button an inline-block element */
     font-size: 16px; /* Sets the font size of the button text to 16 pixels */
-    margin: 4px 2px; /* Adds 4 pixels of margin to the top and bottom, and 2 pixels to the left and right of the button */
+    margin: 2px 2px; /* Adds 4 pixels of margin to the top and bottom, and 2 pixels to the left and right of the button */
     cursor: pointer; /* Changes the cursor to a pointer (hand icon) when hovering over the button */
     border-radius: 4px; /* Rounds the corners of the button with a radius of 4 pixels */
 }
